@@ -1,0 +1,89 @@
+.main_notice {
+  position: relative;
+
+  .inner {
+    margin-bottom: 40px;
+  }
+  .news_slide {
+    .news {
+      .cate {
+        display: inline-block;
+        margin: 0 0 16px 0;
+        padding: 6px 14px;
+        font-size: 14px;
+        color: $color-white;
+
+        &[data-title="news"] {
+          background: $color-sub;
+        }
+        &[data-title="recruit"] {
+          background: #e06a21;
+        }
+        &[data-title="notice"] {
+          background: $color-main;
+        }
+      }
+      strong {
+        margin: 0 0 16px 0;
+        min-height: 48px;
+      }
+      p {
+        margin: 0 0 40px 0;
+      }
+      .date {
+        font-size: 14px;
+        color: $color-gray;
+      }
+    }
+  }
+
+  .arrows {
+    position: absolute;
+    top: 50.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 1440px;
+    width: 100%;
+    padding: 0 15px;
+    user-select: none;
+    z-index: 998;
+
+    .material-symbols-outlined {
+      font-size: 100px;
+      font-weight: 100;
+    }
+
+    .left {
+      position: absolute;
+      left: 0;
+      cursor: pointer;
+      color: $color-gray;
+    }
+
+    .right {
+      position: absolute;
+      right: 0;
+      cursor: pointer;
+      color: $color-gray;
+    }
+
+    @include res() {
+      top: 82%;
+      max-width: 300px;
+      .material-symbols-outlined {
+        font-size: 48px;
+      }
+    }
+  }
+
+  .dots {
+    justify-content: center;
+    li {
+      background: rgba($color: $color-main, $alpha: 0.5);
+
+      &.on {
+        background: rgba($color: $color-main, $alpha: 1);
+      }
+    }
+  }
+}

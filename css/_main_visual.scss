@@ -1,0 +1,108 @@
+.main_visual {
+  position: relative;
+
+  .main_slide {
+    .itm {
+      position: relative;
+      height: 630px;
+    }
+    .main_slide_hh {
+      position: relative;
+      background: url(../images/main_visual_01.png) no-repeat center
+        center/cover;
+
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0 0 0 0;
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
+    .main_slide_ss {
+      background: url(../images/main_visual_02.jpg) no-repeat top 20%
+        center/cover;
+    }
+    .main_slide_rs {
+      background: url(../images/main_visual_03.jpg) no-repeat center
+        center/cover;
+    }
+    .main_slide_cs {
+      background: url(../images/main_visual_04.jpg) no-repeat top 20%
+        center/cover;
+    }
+    .main_slide_rb {
+      position: relative;
+      background: url(../images/main_visual_05.jpg) no-repeat center
+        center/cover;
+      &::after {
+        content: "";
+        position: absolute;
+        inset: 0 0 0 0;
+        background: rgba(0, 0, 0, 0.2);
+      }
+    }
+    .main_slide_dc {
+      background: url(../images/main_visual_06.jpg) no-repeat top 20%
+        center/cover;
+    }
+  }
+
+  .dots {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include res() {
+      top: 70%;
+    }
+  }
+  .slogan {
+    position: absolute;
+    top: 38.5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    @include res() {
+      top: 50%;
+      width: 100%;
+    }
+
+    h2 {
+      margin: 0 0 16px 0;
+      font-size: 48px;
+      font-weight: 700;
+      text-shadow: 0 0 3px #000;
+      text-align: center;
+      color: $color-white;
+
+      @include res() {
+        font-size: 32px;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 22px;
+      text-shadow: 0 0 3px #000;
+      text-align: center;
+      color: $color-white;
+
+      @include res() {
+        font-size: 16px;
+      }
+    }
+
+    .slogan_itm {
+      display: none;
+      flex-direction: column;
+
+      height: 100%;
+
+      &.on {
+        display: flex;
+      }
+    }
+  }
+}

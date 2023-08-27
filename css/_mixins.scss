@@ -1,0 +1,52 @@
+@mixin inner() {
+  max-width: $size-pc;
+  margin: 0 auto;
+  padding: 0 $size-gap/2;
+}
+
+@mixin more_btn() {
+  margin: 0 0 16px 0;
+  text-align: right;
+  font-size: 16px;
+  color: $color-gray;
+}
+
+@mixin btn() {
+  padding: 8px 13px 8px 16px;
+  background: $color-main;
+  color: $color-white;
+}
+
+@mixin con_box() {
+  padding: 30px 35px;
+  background: $color-white;
+  border: 1px solid $color-border;
+}
+
+@mixin dots() {
+  display: flex;
+  gap: 5px;
+  z-index: 999;
+  li {
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
+    background: rgba($color: $color-white, $alpha: 0.5);
+    cursor: pointer;
+    transition: width 0.5s;
+
+    span {
+      font-size: 0;
+    }
+    &.on {
+      width: 32px;
+      background: rgba($color: $color-white, $alpha: 1);
+    }
+  }
+}
+
+@mixin res() {
+  @media (max-width: 768px) {
+    @content;
+  }
+}

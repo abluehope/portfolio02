@@ -1,0 +1,111 @@
+.main_banner {
+  position: relative;
+  z-index: 999;
+  display: flex;
+  max-width: 1170px;
+  padding: 0;
+
+  margin: -150px auto 0 auto;
+
+  @include res() {
+    flex-direction: column;
+    margin: 0 auto 0 auto;
+  }
+
+  > div {
+    padding: 56px 40px;
+    flex: 1;
+    height: 300px;
+
+    strong {
+      display: block;
+      margin: 0 0 16px 0;
+      text-align: center;
+      font-size: 32px;
+      font-weight: 600;
+      color: $color-white;
+    }
+    p {
+      text-align: center;
+      color: $color-white;
+    }
+  }
+
+  .mb_btn {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    background: $color-white;
+    text-align: center;
+  }
+
+  .d_search {
+    background: $color-main;
+    .search {
+      display: flex;
+      align-items: center;
+      min-height: 120px;
+      form {
+        > * {
+          flex: 1;
+        }
+      }
+      input {
+        width: 236px;
+        font-size: 14px;
+        padding: 11px;
+        border: none;
+        outline: none;
+        letter-spacing: -0.025em;
+        font-family: "Pretendard Variable";
+        float: left;
+
+        @include res() {
+          width: 221px;
+        }
+      }
+      button {
+        box-shadow: none;
+        border: none;
+        padding: 0 21px;
+        height: 40px;
+        font-size: 16px;
+        font-family: "Pretendard Variable";
+        background: $color-sub;
+        color: $color-white;
+        float: right;
+        cursor: pointer;
+      }
+    }
+  }
+  .reservation {
+    background: $color-sub;
+    .btn_wrap {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      width: 100%;
+      min-height: 120px;
+    }
+  }
+  .chart {
+    display: flex;
+    flex-direction: column;
+
+    background: #2ca48f;
+
+    .btn_wrap {
+      margin: auto 0;
+      .btn {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+
+        a {
+          flex: 1 1 40%;
+          height: 40px;
+        }
+      }
+    }
+  }
+}

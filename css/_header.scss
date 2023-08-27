@@ -1,0 +1,240 @@
+.header {
+  // 헤더 탑
+  .header_top {
+    border-bottom: 1px solid $color-border;
+    .inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 60px;
+
+      @include res() {
+        position: fixed;
+        left: 0;
+        right: 0;
+        height: 80px;
+        background: $color-white;
+        border-bottom: 1px solid $color-border;
+        z-index: 1000;
+      }
+
+      .top_quick {
+        ul {
+          display: flex;
+          gap: $size-gap;
+          li {
+            position: relative;
+            white-space: nowrap;
+            word-break: keep-all;
+            a {
+              display: block;
+              font-size: 14px;
+              color: $color-gray;
+            }
+            & ~ li::before {
+              content: "";
+              position: absolute;
+              top: 50%;
+              left: -14px;
+              transform: translate(-50%, -50%);
+              width: 3px;
+              height: 3px;
+              border-radius: 50%;
+              background: $color-border;
+            }
+          }
+        }
+        @include res() {
+          display: none;
+        }
+      }
+      .top_user {
+        width: 438px;
+        ul {
+          display: flex;
+          justify-content: flex-end;
+          gap: $size-gap;
+          li {
+            white-space: nowrap;
+            word-break: keep-all;
+            a {
+              display: block;
+              font-size: 14px;
+              color: $color-gray;
+              .material-symbols-outlined {
+                vertical-align: -2px;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+
+        @include res() {
+          display: none;
+        }
+      }
+    }
+  }
+
+  // 메뉴
+  .header_nav {
+    border-bottom: 1px solid $color-border;
+    @include res() {
+      display: none;
+    }
+    &:hover {
+      .sub_menu {
+        height: 434px;
+        border-bottom: 1px solid $color-border;
+      }
+    }
+    .gnb_wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .util {
+        position: relative;
+        width: 24px;
+        height: 18px;
+
+        span {
+          font-size: 0;
+
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 50% 0 auto 0;
+            height: 2px;
+            background: $color-body;
+            border-radius: 2px;
+            transform: translate(0, -50%);
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            inset: 50% 0 auto 0;
+            height: 2px;
+            background: $color-body;
+            border-radius: 2px;
+            transform: translate(0, -50%);
+          }
+        }
+
+        button {
+          background: transparent;
+          border: none;
+          outline: none;
+
+          &::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto 0;
+            height: 2px;
+            background: $color-body;
+            border-radius: 2px;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 2px;
+            background: $color-body;
+            border-radius: 2px;
+          }
+        }
+      }
+
+      .gnb {
+        &:hover {
+          > ul {
+            > li {
+              .sub {
+                display: block;
+              }
+            }
+          }
+        }
+        display: flex;
+        justify-content: space-between;
+        li {
+          width: 170px;
+          position: relative;
+          line-height: 70px;
+          white-space: nowrap;
+          word-break: keep-all;
+          text-align: center;
+
+          &::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 50%;
+            transform: translate(-50%, 0);
+            width: 0;
+            height: 3px;
+            background: $color-main;
+          }
+
+          &:hover {
+            color: $color-main;
+            &::after {
+              width: 100%;
+              transition: 0.5s;
+            }
+          }
+
+          a {
+            display: block;
+            font-size: 18px;
+            font-weight: 500;
+            span {
+              vertical-align: middle;
+            }
+          }
+          .sub {
+            display: none;
+          }
+          .sub_reservation {
+            display: none;
+          }
+        }
+        .top_quick_btn {
+          width: 135px;
+          background: $color-main;
+          a {
+            font-size: 18px;
+            line-height: 70px;
+            text-align: center;
+
+            color: $color-white;
+            span {
+              vertical-align: -6px;
+              padding-right: 8px;
+            }
+          }
+        }
+        .mc {
+          background: $color-sub;
+        }
+      }
+    }
+  }
+
+  .nav_fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $color-white;
+    z-index: 1000;
+
+    .gnb_wrap {
+      .sub_menu {
+        top: 71px;
+      }
+    }
+  }
+}

@@ -1,0 +1,205 @@
+.main_h_info {
+  .content_wrap {
+    margin: 0 auto $size-gap auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: $size-gap;
+
+    .banner_slide_wrap {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 2;
+
+      @include res() {
+        margin: 0 0 $size-gap 0;
+      }
+    }
+
+    @include res() {
+      grid-template-columns: repeat(1, 2fr);
+      gap: 0;
+    }
+
+    .dots {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+    }
+
+    .banner_slide_wrap {
+      position: relative;
+      .dots {
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+    .banner_slide {
+      .itm {
+        position: relative;
+        height: 300px;
+
+        .txt_box {
+          position: absolute;
+          width: 100%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 999;
+          text-align: center;
+          span {
+            display: block;
+            margin: 0 0 16px 0;
+            color: $color-white;
+          }
+          strong {
+            margin: 0 0 32px 0;
+            display: block;
+            font-size: 32px;
+            font-weight: 600;
+            color: $color-white;
+          }
+          a {
+            padding: 8px 24px;
+            color: $color-white;
+            border: 1px solid $color-white;
+          }
+        }
+      }
+      .banner_slide_sv {
+        background: url(../images/main_h_info_slide_01.jpg) no-repeat center
+          center/cover;
+      }
+      .banner_slide_ss {
+        background: url(../images/main_h_info_slide_02.jpg) no-repeat center
+          center/cover;
+      }
+      .banner_slide_jm {
+        background: url(../images/main_h_info_slide_03.jpg) no-repeat center
+          center/cover;
+      }
+    }
+
+    .doctor_slide_wrap {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .doctor_slide {
+      .itm {
+        position: relative;
+        height: 300px;
+        .txt_box {
+          position: absolute;
+          top: 10%;
+          padding: 0 24px;
+          z-index: 999;
+          span {
+            font-weight: 300;
+            color: $color-white;
+          }
+          .bold {
+            font-weight: 500;
+
+            &::after {
+              content: "";
+              display: block;
+              width: 30px;
+              height: 1px;
+              margin: 14px 0;
+              background: #ffffff;
+            }
+          }
+          p {
+            margin: 0 0 8px 0;
+            width: 180px;
+            font-size: 16px;
+            font-weight: 300;
+            line-height: 22px;
+            color: $color-white;
+          }
+          strong {
+            font-size: 28px;
+            font-weight: 600;
+            color: $color-white;
+          }
+        }
+      }
+      .doctor_slide_dh {
+        background: url(../images/main_doctor_01.png) no-repeat 140% center,
+          linear-gradient(-45deg, #736862 50%, #92857d 50%);
+          
+          @include res() {
+            background: url(../images/main_doctor_01.png) no-repeat 190% center,
+          linear-gradient(-45deg, #736862 50%, #92857d 50%);
+          }
+      }
+      .doctor_slide_jw {
+        background: url(../images/main_doctor_02.png) no-repeat 140% center,
+          linear-gradient(-45deg, #736862 50%, #92857d 50%);
+      }
+      .doctor_slide_jh {
+        background: url(../images/main_doctor_03.png) no-repeat 140% center,
+          linear-gradient(-45deg, #736862 50%, #92857d 50%);
+          @include res() {
+            background: url(../images/main_doctor_03.png) no-repeat 170% center,
+          linear-gradient(-45deg, #736862 50%, #92857d 50%);
+          }
+      }
+    }
+  }
+
+  .btn_wrap {
+    display: flex;
+    gap: $size-gap;
+
+    > a {
+      flex: 1;
+    }
+
+    @include res() {
+      flex-direction: column;
+    }
+
+    .info_btn {
+      display: flex;
+      gap: $size-gap;
+      justify-content: center;
+      padding: 24px;
+      user-select: none;
+
+      .icon_box {
+        .material-symbols-outlined {
+          font-size: 40px;
+          font-weight: 300;
+          color: $color-white;
+        }
+      }
+
+      .txt_box {
+        strong {
+          margin: 0 0 8px 0;
+          display: block;
+          font-size: 24px;
+          font-weight: 600;
+          color: $color-white;
+        }
+        span {
+          color: $color-white;
+        }
+      }
+    }
+
+    .medicine {
+      background: $color-main;
+    }
+
+    .nutrition {
+      background: $color-sub;
+    }
+
+    .drug {
+      background: #e3751c;
+    }
+  }
+}

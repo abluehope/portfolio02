@@ -1,0 +1,124 @@
+.footer {
+  position: relative;
+
+  .quick_menu {
+    z-index: 999;
+    width: 100%;
+    height: 52px;
+    background: #374257;
+    &.qm_fixed {
+      position: fixed;
+      bottom: 0;
+    }
+    ul {
+      display: flex;
+      justify-content: space-between;
+
+      li {
+        padding: 10px 0;
+        width: 167px;
+        height: 52px;
+        border-left: 1px solid rgba($color: #c3c7cd, $alpha: 0.3);
+        &:nth-child(7) {
+          border-right: 1px solid rgba($color: #c3c7cd, $alpha: 0.3);
+        }
+        a {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 20px;
+          color: #c3c7cd;
+          span {
+            display: inline-block;
+            padding: 4px 3px 4px 4px;
+            vertical-align: -6px;
+            background: #c3c7cd;
+            color: #374257;
+            border-radius: 50%;
+          }
+        }
+      }
+    }
+    @include res() {
+      display: none;
+    }
+  }
+
+  .copy_wrap {
+    background: #3d4044;
+    color: $color-border;
+
+    .footer_top {
+      padding: 24px 0;
+      border-top: 1px solid #34363a;
+      border-bottom: 1px solid #34363a;
+      ul {
+        display: flex;
+        justify-content: center;
+        gap: $size-gap;
+        li {
+          position: relative;
+          white-space: nowrap;
+          word-break: keep-all;
+
+          a {
+            line-height: 1.5;
+            span {
+              font-weight: 700;
+              color: $color-main;
+            }
+          }
+
+          & ~ li::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -14px;
+            transform: translate(-50%, -50%);
+            width: 1px;
+            height: 11px;
+            background: $color-gray;
+          }
+        }
+
+        @include res() {
+          flex-wrap: wrap;
+          gap: 8px;
+
+          &:nth-child(1) {
+            margin: 0 0 16px 0;
+          }
+          li {
+            & ~ li::before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .footer_bottom {
+      padding: 32px 0 24px 0;
+
+      ul {
+        li {
+          margin: 0 0 8px 0;
+          font-size: 14px;
+          span {
+            font-size: 24px;
+            font-weight: 500;
+            color: $color-sub;
+
+            @include res() {
+              font-size: 20px;
+            }
+          }
+          @include res() {
+            font-size: 14px;
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }
+}

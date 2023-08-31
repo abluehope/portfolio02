@@ -1165,16 +1165,24 @@ address {
 .to_top {
   position: fixed;
   bottom: 100px;
-  right: 0;
+  right: 100px;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
   transition: 0.5s;
 }
 .to_top.on {
-  bottom: 0;
+  bottom: 3%;
   visibility: visible;
   opacity: 1;
+}
+@media (max-width: 768px) {
+  .to_top {
+    right: 0;
+  }
+  .to_top.on {
+    bottom: 0;
+  }
 }
 .to_top .material-symbols-outlined {
   padding: 10px;

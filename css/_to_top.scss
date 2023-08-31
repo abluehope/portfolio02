@@ -1,7 +1,7 @@
 .to_top {
   position: fixed;
   bottom: 100px;
-  right: 0;
+  right: 100px;
   z-index: 1000;
 
   opacity: 0;
@@ -9,9 +9,17 @@
   transition: 0.5s;
 
   &.on {
-    bottom: 0;
+    bottom: 3%;
     visibility: visible;
     opacity: 1;
+  }
+
+  @include res() {
+    right: 0;
+
+    &.on {
+      bottom: 0;
+    }
   }
 
   .material-symbols-outlined {

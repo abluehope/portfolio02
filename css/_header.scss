@@ -153,6 +153,9 @@
             .sub {
               height: 480px;
             }
+            .sub_reservation {
+              height: 480px;
+            }
           }
           &::before {
             height: 481px;
@@ -225,77 +228,8 @@
               }
             }
           }
-          .sub_reservation {
-            display: none;
-            // display: flex;
-            // flex-direction: column;
-            // justify-content: space-between;
-            // padding: 16px 0 0 0;
-
-            // width: 270px;
-            // background: $color-main;
-            // text-align: center;
-
-            // .top {
-            //   .material-symbols-outlined {
-            //     margin: 0 0 16px 0;
-            //     font-size: 80px;
-            //     font-weight: 200;
-            //     color: $color-main;
-            //     background: $color-white;
-            //     padding: 0 5px 8px 5px;
-            //     border-radius: 50%;
-            //   }
-
-            //   .input_f {
-            //     display: inline-block;
-            //     text-align: center;
-            //     form {
-            //       margin: 0 0 16px 0;
-            //       display: flex;
-            //       align-items: center;
-            //       gap: 8px;
-
-            //       input {
-            //         width: 60px;
-            //         font-size: 12px;
-            //         padding: 8px;
-            //         border: none;
-            //         outline: none;
-            //         letter-spacing: -0.025em;
-            //         font-family: "Pretendard Variable";
-            //         text-align: center;
-            //       }
-            //       span {
-            //         color: $color-white;
-            //       }
-            //     }
-            //   }
-
-            //   p {
-            //     margin: 0 0 16px 0;
-            //     font-size: 13px;
-            //     line-height: 20px;
-            //     color: $color-white;
-
-            //     .point {
-            //       font-size: 18px;
-            //       font-weight: 500;
-            //       color: #ffd000;
-            //     }
-            //   }
-            // }
-            // .bottom {
-            //   a {
-            //     padding: 18px 0;
-            //     width: 100%;
-            //     display: inline-block;
-            //     background: $color-sub;
-            //     color: $color-white;
-            //   }
-            // }
-          }
         }
+
         .g_menu {
           &::after {
             content: "";
@@ -317,6 +251,7 @@
           }
         }
         .top_quick_btn {
+          position: relative;
           width: 135px;
           background: $color-main;
           a {
@@ -328,6 +263,85 @@
             span {
               vertical-align: -6px;
               padding-right: 8px;
+            }
+          }
+          .sub_reservation {
+            position: absolute;
+            top: 71px;
+            left: 100%;
+            transform: translate(-50%, 0);
+            height: 0;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            width: 270px;
+            background: $color-main;
+            text-align: center;
+
+            overflow: hidden;
+            transition: 0.5s;
+
+            z-index: 1000;
+
+            .top {
+              padding: 32px 0 0 0;
+              .material-symbols-outlined {
+                margin: 0 0 16px 0;
+                font-size: 80px;
+                font-weight: 200;
+                color: $color-main;
+                background: $color-white;
+                padding: 0 5px 8px 5px;
+                border-radius: 50%;
+              }
+
+              .input_f {
+                display: inline-block;
+                text-align: center;
+                form {
+                  margin: 0 0 16px 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+
+                  input {
+                    width: 60px;
+                    font-size: 12px;
+                    padding: 8px;
+                    border: none;
+                    outline: none;
+                    letter-spacing: -0.025em;
+                    font-family: "Pretendard Variable";
+                    text-align: center;
+                  }
+                  span {
+                    color: $color-white;
+                  }
+                }
+              }
+
+              p {
+                margin: 0 0 16px 0;
+                font-size: 13px;
+                line-height: 20px;
+                color: $color-white;
+
+                .point {
+                  font-size: 18px;
+                  font-weight: 500;
+                  color: #ffd000;
+                }
+              }
+            }
+            .bottom {
+              a {
+                width: 100%;
+                display: inline-block;
+                background: $color-sub;
+                color: $color-white;
+              }
             }
           }
         }

@@ -301,6 +301,9 @@ address {
 .header .header_nav .gnb_wrap .gnb:hover > li .sub {
   height: 480px;
 }
+.header .header_nav .gnb_wrap .gnb:hover > li .sub_reservation {
+  height: 480px;
+}
 .header .header_nav .gnb_wrap .gnb:hover::before {
   height: 481px;
   border-bottom: 1px solid #dddddd;
@@ -361,9 +364,6 @@ address {
   background: #0770bb;
   color: #ffffff;
 }
-.header .header_nav .gnb_wrap .gnb li .sub_reservation {
-  display: none;
-}
 .header .header_nav .gnb_wrap .gnb .g_menu::after {
   content: "";
   position: absolute;
@@ -382,6 +382,7 @@ address {
   transition: 0.5s;
 }
 .header .header_nav .gnb_wrap .gnb .top_quick_btn {
+  position: relative;
   width: 135px;
   background: #0770bb;
 }
@@ -394,6 +395,74 @@ address {
 .header .header_nav .gnb_wrap .gnb .top_quick_btn a span {
   vertical-align: -6px;
   padding-right: 8px;
+}
+.header .header_nav .gnb_wrap .gnb .top_quick_btn .sub_reservation {
+  position: absolute;
+  top: 71px;
+  left: 100%;
+  transform: translate(-50%, 0);
+  height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 270px;
+  background: #0770bb;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.5s;
+  z-index: 1000;
+}
+.header .header_nav .gnb_wrap .gnb .top_quick_btn .sub_reservation .top {
+  padding: 32px 0 0 0;
+}
+.header .header_nav .gnb_wrap .gnb .top_quick_btn .sub_reservation .top .material-symbols-outlined {
+  margin: 0 0 16px 0;
+  font-size: 80px;
+  font-weight: 200;
+  color: #0770bb;
+  background: #ffffff;
+  padding: 0 5px 8px 5px;
+  border-radius: 50%;
+}
+.header .header_nav .gnb_wrap .gnb .top_quick_btn .sub_reservation .top .input_f {
+  display: inline-block;
+  text-align: center;
+}
+.header .header_nav .gnb_wrap .gnb .top_quick_btn .sub_reservation .top .input_f form {
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header .header_nav .gnb_wrap .gnb .top_quick_btn .sub_reservation .top .input_f form input {
+  width: 60px;
+  font-size: 12px;
+  padding: 8px;
+  border: none;
+  outline: none;
+  letter-spacing: -0.025em;
+  font-family: "Pretendard Variable";
+  text-align: center;
+}
+.header .header_nav .gnb_wrap .gnb .top_quick_btn .sub_reservation .top .input_f form span {
+  color: #ffffff;
+}
+.header .header_nav .gnb_wrap .gnb .top_quick_btn .sub_reservation .top p {
+  margin: 0 0 16px 0;
+  font-size: 13px;
+  line-height: 20px;
+  color: #ffffff;
+}
+.header .header_nav .gnb_wrap .gnb .top_quick_btn .sub_reservation .top p .point {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffd000;
+}
+.header .header_nav .gnb_wrap .gnb .top_quick_btn .sub_reservation .bottom a {
+  width: 100%;
+  display: inline-block;
+  background: #199da3;
+  color: #ffffff;
 }
 .header .header_nav .gnb_wrap .gnb .mc {
   background: #199da3;

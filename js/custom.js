@@ -1,7 +1,7 @@
 $(function () {
   $(".mobile_btn").on("click", function () {
     $(this).toggleClass("on");
-    $(".gnb").toggleClass("on");
+    $(".header_nav").toggleClass("on");
   });
 
   const nav_offset = $(".header_nav").offset();

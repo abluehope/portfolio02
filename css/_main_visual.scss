@@ -5,6 +5,10 @@
     .itm {
       position: relative;
       height: 630px;
+
+      @include res() {
+        height: 400px;
+      }
     }
     .main_slide_hh {
       position: relative;
@@ -54,7 +58,7 @@
     transform: translate(-50%, -50%);
 
     @include res() {
-      top: 70%;
+      top: 80%;
     }
   }
   .slogan {

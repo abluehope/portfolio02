@@ -17,6 +17,10 @@
     flex: 1;
     height: 300px;
 
+    @include res() {
+      padding: 40px 40px;
+    }
+
     strong {
       display: block;
       margin: 0 0 16px 0;
@@ -45,6 +49,10 @@
       display: flex;
       align-items: center;
       min-height: 120px;
+
+      @include res() {
+        min-height: 80px;
+      }
       form {
         > * {
           flex: 1;
@@ -86,6 +94,9 @@
       align-items: center;
       width: 100%;
       min-height: 120px;
+      @include res() {
+        min-height: 80px;
+      }
     }
   }
   .chart {
@@ -94,8 +105,15 @@
 
     background: #2ca48f;
 
+    @include res() {
+      p {
+        margin: 0 0 24px 0;
+      }
+    }
+
     .btn_wrap {
       margin: auto 0;
+
       .btn {
         display: flex;
         flex-wrap: wrap;

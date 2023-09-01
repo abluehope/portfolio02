@@ -40,10 +40,10 @@ $(function () {
   const main_slide = new Swiper(".main_slide", {
     loop: true,
     speed: 1000,
-    // autoplay: {
-    //   delay: 6000,
-    //   disableOnInteraction: false,
-    // },
+    autoplay: {
+      delay: 6000,
+      disableOnInteraction: false,
+    },
     on: {
       slideChangeTransitionStart: function () {
         $(".main_visual .slogan .slogan_itm")

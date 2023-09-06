@@ -8,7 +8,7 @@ $(function () {
     e.preventDefault();
   });
 
-  $(".gnb>li>a").on("click", function (e) {
+  $(".gnb>ul>li>a").on("click", function (e) {
     if ($(".header_nav").hasClass("on")) {
       e.preventDefault();
     }

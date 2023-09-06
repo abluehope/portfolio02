@@ -57,6 +57,11 @@
           li {
             white-space: nowrap;
             word-break: keep-all;
+            a {
+              display: block;
+              font-size: 14px;
+              color: $color-gray;
+            }
           }
           .la_chg {
             position: relative;
@@ -151,24 +156,29 @@
       }
     }
     &.on {
-      .gnb {
-        > li {
-          .sub {
-            height: 480px;
+      .gnb_wrap {
+        .gnb {
+          ul {
+            > li {
+              .sub {
+                height: 480px;
 
-            @include res() {
-              height: auto;
+                @include res() {
+                  height: auto;
+                }
+              }
+              .sub_reservation {
+                height: 480px;
+              }
             }
           }
-          .sub_reservation {
-            height: 480px;
+          &::before {
+            height: 481px;
+            border-bottom: 1px solid $color-border;
           }
         }
-        &::before {
-          height: 481px;
-          border-bottom: 1px solid $color-border;
-        }
       }
+
       .sub_menu {
         height: 434px;
         border-bottom: 1px solid $color-border;
@@ -195,32 +205,15 @@
         height: 18px;
         cursor: pointer;
 
-        @include res() {
-          display: none;
-        }
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 45% 0 auto 0;
+          height: 2px;
+          background: $color-body;
 
-        span {
-          font-size: 0;
-
-          &::before {
-            content: "";
-            position: absolute;
-            inset: 50% 0 auto 0;
-            height: 2px;
-            background: $color-body;
-            border-radius: 2px;
-            transform: translate(0, -50%);
-          }
-
-          &::after {
-            content: "";
-            position: absolute;
-            inset: 50% 0 auto 0;
-            height: 2px;
-            background: $color-body;
-            border-radius: 2px;
-            transform: translate(0, -50%);
-          }
+          transition: 0.5s;
         }
 
         .menu {
@@ -234,33 +227,59 @@
             inset: 0 0 auto 0;
             height: 2px;
             background: $color-body;
-            border-radius: 2px;
+            opacity: 1;
+
+            transition: 0.5s;
           }
 
           &::after {
             content: "";
-            position: absolute;
             inset: auto 0 0 0;
+            position: absolute;
             height: 2px;
             background: $color-body;
-            border-radius: 2px;
+            opacity: 1;
+
+            transition: 0.5s;
           }
+        }
+
+        &.on {
+          &::before {
+            transform: rotate(45deg);
+          }
+          &::after {
+            transform: rotate(-45deg);
+          }
+          button {
+            &::before,
+            &::after {
+              opacity: 0;
+            }
+          }
+        }
+
+        @include res() {
+          display: none;
         }
       }
 
       .gnb {
         &:hover {
-          > li {
-            .sub {
-              height: 480px;
-              @include res() {
-                height: auto;
+          ul {
+            > li {
+              .sub {
+                height: 480px;
+                @include res() {
+                  height: auto;
+                }
+              }
+              .sub_reservation {
+                height: 480px;
               }
             }
-            .sub_reservation {
-              height: 480px;
-            }
           }
+
           &::before {
             height: 481px;
             border-bottom: 1px solid $color-border;
@@ -288,219 +307,221 @@
             display: none;
           }
         }
-
-        display: flex;
-        justify-content: space-between;
-
-        @include res() {
-          flex-direction: column;
-        }
-        li {
-          position: relative;
-          width: 170px;
-          white-space: nowrap;
-          word-break: keep-all;
-          text-align: center;
+        ul {
+          display: flex;
+          justify-content: space-between;
 
           @include res() {
-            width: 100%;
-            text-align: left;
+            flex-direction: column;
           }
 
-          a {
-            display: block;
-            font-size: 18px;
-            font-weight: 500;
-            line-height: 70px;
+          li {
+            position: relative;
+            width: 170px;
+            white-space: nowrap;
+            word-break: keep-all;
+            text-align: center;
 
             @include res() {
-              line-height: 56px;
+              width: 100%;
+              text-align: left;
             }
-            span {
-              vertical-align: middle;
+
+            a {
+              display: block;
+              font-size: 18px;
+              font-weight: 500;
+              line-height: 70px;
+
+              @include res() {
+                line-height: 56px;
+              }
+              span {
+                vertical-align: middle;
+              }
+            }
+            .sub {
+              display: block;
+              position: absolute;
+              top: 71px;
+              left: 50%;
+              transform: translate(-50%, 0);
+              height: 0;
+              overflow: hidden;
+              background: $color-white;
+
+              z-index: 1001;
+
+              transition: 0.5s;
+
+              @include res() {
+                display: none;
+                position: static;
+                transform: translate(0, 0);
+                background: $color-bg;
+                padding: 0;
+                width: auto;
+                border: none;
+                border-radius: 0;
+                box-shadow: none;
+                transition: none;
+              }
+
+              li {
+                color: $color-body;
+                &:hover {
+                  color: $color-body;
+                  &::after {
+                    width: 0;
+                  }
+                }
+
+                a {
+                  font-size: 16px;
+                  font-weight: 400;
+                  line-height: 40px;
+
+                  @include res() {
+                    text-align: center;
+                    border-bottom: 1px solid $color-border;
+                  }
+                  &:hover {
+                    background: $color-main;
+                    color: $color-white;
+                  }
+                }
+              }
             }
           }
-          .sub {
-            position: absolute;
-            top: 71px;
-            left: 50%;
-            transform: translate(-50%, 0);
-            height: 0;
-            overflow: hidden;
-            background: $color-white;
+          .g_menu {
+            @include res() {
+              border-bottom: 1px solid $color-border;
+            }
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -1px;
+              left: 50%;
+              transform: translate(-50%, 0);
+              width: 0;
+              height: 3px;
+              background: $color-main;
 
-            z-index: 1001;
+              @include res() {
+                display: none;
+              }
+            }
 
-            transition: 0.5s;
+            &:hover {
+              color: $color-main;
+              &::after {
+                width: 100%;
+                transition: 0.5s;
+              }
+            }
+          }
+          .top_quick_btn {
+            position: relative;
+            width: 135px;
+            background: $color-main;
 
             @include res() {
               display: none;
-              position: static;
-              transform: translate(0, 0);
-              background: $color-bg;
-              padding: 0;
-              width: auto;
-              border: none;
-              border-radius: 0;
-              box-shadow: none;
-              transition: none;
             }
+            a {
+              font-size: 18px;
+              line-height: 70px;
+              text-align: center;
 
-            li {
-              color: $color-body;
-              &:hover {
-                color: $color-body;
-                &::after {
-                  width: 0;
+              color: $color-white;
+              span {
+                vertical-align: -6px;
+                padding-right: 8px;
+              }
+            }
+            .sub_reservation {
+              position: absolute;
+              top: 71px;
+              left: 100%;
+              transform: translate(-50%, 0);
+              height: 0;
+
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+
+              width: 270px;
+              background: $color-main;
+              text-align: center;
+
+              overflow: hidden;
+              transition: 0.5s;
+
+              z-index: 1000;
+
+              .top {
+                padding: 32px 0 0 0;
+                .material-symbols-outlined {
+                  margin: 0 0 16px 0;
+                  font-size: 80px;
+                  font-weight: 200;
+                  color: $color-main;
+                  background: $color-white;
+                  padding: 0 5px 8px 5px;
+                  border-radius: 50%;
+                }
+
+                .input_f {
+                  display: inline-block;
+                  text-align: center;
+                  form {
+                    margin: 0 0 16px 0;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    input {
+                      width: 60px;
+                      font-size: 12px;
+                      padding: 8px;
+                      border: none;
+                      outline: none;
+                      letter-spacing: -0.025em;
+                      font-family: "Pretendard Variable";
+                      text-align: center;
+                    }
+                    span {
+                      color: $color-white;
+                    }
+                  }
+                }
+
+                p {
+                  margin: 0 0 16px 0;
+                  font-size: 13px;
+                  line-height: 20px;
+                  color: $color-white;
+
+                  .point {
+                    font-size: 18px;
+                    font-weight: 500;
+                    color: #ffd000;
+                  }
                 }
               }
-
-              a {
-                font-size: 16px;
-                font-weight: 400;
-                line-height: 40px;
-
-                @include res() {
-                  text-align: center;
-                  border-bottom: 1px solid $color-border;
-                }
-                &:hover {
-                  background: $color-main;
+              .bottom {
+                a {
+                  width: 100%;
+                  display: inline-block;
+                  background: $color-sub;
                   color: $color-white;
                 }
               }
             }
           }
-        }
-
-        .g_menu {
-          @include res() {
-            border-bottom: 1px solid $color-border;
+          .mc {
+            background: $color-sub;
           }
-          &::after {
-            content: "";
-            position: absolute;
-            bottom: -1px;
-            left: 50%;
-            transform: translate(-50%, 0);
-            width: 0;
-            height: 3px;
-            background: $color-main;
-
-            @include res() {
-              display: none;
-            }
-          }
-
-          &:hover {
-            color: $color-main;
-            &::after {
-              width: 100%;
-              transition: 0.5s;
-            }
-          }
-        }
-        .top_quick_btn {
-          position: relative;
-          width: 135px;
-          background: $color-main;
-
-          @include res() {
-            display: none;
-          }
-          a {
-            font-size: 18px;
-            line-height: 70px;
-            text-align: center;
-
-            color: $color-white;
-            span {
-              vertical-align: -6px;
-              padding-right: 8px;
-            }
-          }
-          .sub_reservation {
-            position: absolute;
-            top: 71px;
-            left: 100%;
-            transform: translate(-50%, 0);
-            height: 0;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-
-            width: 270px;
-            background: $color-main;
-            text-align: center;
-
-            overflow: hidden;
-            transition: 0.5s;
-
-            z-index: 1000;
-
-            .top {
-              padding: 32px 0 0 0;
-              .material-symbols-outlined {
-                margin: 0 0 16px 0;
-                font-size: 80px;
-                font-weight: 200;
-                color: $color-main;
-                background: $color-white;
-                padding: 0 5px 8px 5px;
-                border-radius: 50%;
-              }
-
-              .input_f {
-                display: inline-block;
-                text-align: center;
-                form {
-                  margin: 0 0 16px 0;
-                  display: flex;
-                  align-items: center;
-                  gap: 8px;
-
-                  input {
-                    width: 60px;
-                    font-size: 12px;
-                    padding: 8px;
-                    border: none;
-                    outline: none;
-                    letter-spacing: -0.025em;
-                    font-family: "Pretendard Variable";
-                    text-align: center;
-                  }
-                  span {
-                    color: $color-white;
-                  }
-                }
-              }
-
-              p {
-                margin: 0 0 16px 0;
-                font-size: 13px;
-                line-height: 20px;
-                color: $color-white;
-
-                .point {
-                  font-size: 18px;
-                  font-weight: 500;
-                  color: #ffd000;
-                }
-              }
-            }
-            .bottom {
-              a {
-                width: 100%;
-                display: inline-block;
-                background: $color-sub;
-                color: $color-white;
-              }
-            }
-          }
-        }
-        .mc {
-          background: $color-sub;
         }
       }
     }

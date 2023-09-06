@@ -57,13 +57,66 @@
           li {
             white-space: nowrap;
             word-break: keep-all;
-            a {
+          }
+          .la_chg {
+            position: relative;
+            .la_sct {
               display: block;
               font-size: 14px;
               color: $color-gray;
+              cursor: pointer;
               .material-symbols-outlined {
                 vertical-align: -2px;
                 font-size: 14px;
+              }
+              ul {
+                position: absolute;
+                top: 32px;
+                left: 0;
+
+                width: 55px;
+                border: 1px solid #ddd;
+                background: #fff;
+                color: #333;
+                line-height: 29px;
+
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+
+                z-index: 1001;
+
+                &.on {
+                  display: flex;
+                  gap: 0;
+                }
+
+                &::before {
+                  content: "";
+                  position: absolute;
+                  top: -10px;
+                  left: 50%;
+                  transform: translate(-50%, 0) rotate(45deg);
+                  width: 20px;
+                  height: 20px;
+                  background: #fff;
+                  border: 1px solid #ddd;
+                }
+
+                li {
+                  position: relative;
+                  background: #fff;
+
+                  & ~ li {
+                    border-top: 1px solid #ddd;
+                  }
+
+                  a {
+                    display: block;
+                    text-align: center;
+                    font-size: 14px;
+                  }
+                }
               }
             }
           }
@@ -79,8 +132,47 @@
   // 메뉴
   .header_nav {
     border-bottom: 1px solid $color-border;
+
     @include res() {
-      display: none;
+      position: fixed;
+      bottom: 0;
+      left: -100%;
+      z-index: 1000;
+
+      background: $color-white;
+      width: 100%;
+      height: calc(100vh - 80px);
+      padding: 40px 24px 0 24px;
+
+      transition: 0.5s;
+
+      &.on {
+        left: 0;
+      }
+    }
+    &.on {
+      .gnb {
+        > li {
+          .sub {
+            height: 480px;
+
+            @include res() {
+              height: auto;
+            }
+          }
+          .sub_reservation {
+            height: 480px;
+          }
+        }
+        &::before {
+          height: 481px;
+          border-bottom: 1px solid $color-border;
+        }
+      }
+      .sub_menu {
+        height: 434px;
+        border-bottom: 1px solid $color-border;
+      }
     }
     &:hover {
       .sub_menu {
@@ -93,10 +185,19 @@
       justify-content: space-between;
       align-items: center;
 
+      @include res() {
+        display: block;
+      }
+
       .util {
         position: relative;
         width: 24px;
         height: 18px;
+        cursor: pointer;
+
+        @include res() {
+          display: none;
+        }
 
         span {
           font-size: 0;
@@ -122,7 +223,7 @@
           }
         }
 
-        button {
+        .menu {
           background: transparent;
           border: none;
           outline: none;
@@ -152,6 +253,9 @@
           > li {
             .sub {
               height: 480px;
+              @include res() {
+                height: auto;
+              }
             }
             .sub_reservation {
               height: 480px;
@@ -160,6 +264,10 @@
           &::before {
             height: 481px;
             border-bottom: 1px solid $color-border;
+
+            @include res() {
+              border-bottom: none;
+            }
           }
         }
 
@@ -175,10 +283,18 @@
           transition: 0.5s;
 
           z-index: 1000;
+
+          @include res() {
+            display: none;
+          }
         }
 
         display: flex;
         justify-content: space-between;
+
+        @include res() {
+          flex-direction: column;
+        }
         li {
           position: relative;
           width: 170px;
@@ -186,11 +302,20 @@
           word-break: keep-all;
           text-align: center;
 
+          @include res() {
+            width: 100%;
+            text-align: left;
+          }
+
           a {
             display: block;
             font-size: 18px;
             font-weight: 500;
             line-height: 70px;
+
+            @include res() {
+              line-height: 56px;
+            }
             span {
               vertical-align: middle;
             }
@@ -208,6 +333,19 @@
 
             transition: 0.5s;
 
+            @include res() {
+              display: none;
+              position: static;
+              transform: translate(0, 0);
+              background: $color-bg;
+              padding: 0;
+              width: auto;
+              border: none;
+              border-radius: 0;
+              box-shadow: none;
+              transition: none;
+            }
+
             li {
               color: $color-body;
               &:hover {
@@ -221,6 +359,11 @@
                 font-size: 16px;
                 font-weight: 400;
                 line-height: 40px;
+
+                @include res() {
+                  text-align: center;
+                  border-bottom: 1px solid $color-border;
+                }
                 &:hover {
                   background: $color-main;
                   color: $color-white;
@@ -231,6 +374,9 @@
         }
 
         .g_menu {
+          @include res() {
+            border-bottom: 1px solid $color-border;
+          }
           &::after {
             content: "";
             position: absolute;
@@ -240,6 +386,10 @@
             width: 0;
             height: 3px;
             background: $color-main;
+
+            @include res() {
+              display: none;
+            }
           }
 
           &:hover {
@@ -254,6 +404,10 @@
           position: relative;
           width: 135px;
           background: $color-main;
+
+          @include res() {
+            display: none;
+          }
           a {
             font-size: 18px;
             line-height: 70px;
